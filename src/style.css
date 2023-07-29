@@ -1,97 +1,78 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  body {
+    @apply min-h-screen leading-normal font-space-mono bg-primary-300 flex flex-col items-center gap-y-10 lg:gap-y-[88px] justify-between lg:justify-normal;
   }
-  a:hover {
-    color: #747bff;
+  label,
+  p {
+    @apply text-neutral-700;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer utilities {
+  .default-input {
+    @apply pr-4 w-full text-right text-2xl text-primary-700 caret-primary-500 bg-neutral-200 border-0 py-1.5 rounded-[5px] leading-9 outline-none;
   }
+
+  .default-input-hover {
+    @apply hover:outline-2 hover:outline-primary-500 focus:outline-primary-500 focus:outline-2;
+  }
+
+  .btn {
+    @apply text-neutral-100 text-center cursor-pointer border-0 rounded-[5px] text-2xl leading-9 py-1.5 bg-primary-700 hover:text-primary-700 hover:bg-primary-400;
+  }
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+main {
+  box-shadow: 0px 32px 43px 0px hsla(185, 38%, 50%, 0.2);
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+.input-icon {
+  position: absolute;
+  inset: 22px 0 0 17px;
+}
+
+input.invalid {
+  outline: 2px solid #e17457;
+}
+
+.error {
+  color: #e17457;
+  z-index: 5;
+  position: absolute;
+  top: -24px;
+  right: 0;
+}
+
+.custom-error {
+  color: #e17457;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.active {
+  color: #00494d !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  background-color: #26c0ab !important;
+}
+
+.active:hover {
+  opacity: 1;
+  background-color: #a1e8e0 !important;
 }

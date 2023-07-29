@@ -3,14 +3,91 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" type="image/png" href="/favicon-32x32.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="image/png" href="/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
   <title>Tip Calculator App</title>
+  <script type="module" src="/src/scripts/main.ts"></script>
 </head>
 
 <body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.ts"></script>
+  <header class="pt-[5vh] lg:pt-[16vh] ">
+    <img src="./src/assets/images/logo.svg" alt="logo" />
+  </header>
+  <main
+    class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-y-10 w-full lg:w-[90%] max-w-[600px] lg:max-w-[920px] bg-neutral-100 rounded-[25px] p-8 lg:gap-x-12 lg:grid-rows-[repeat(3,max-content)] relative"
+    id="calc">
+
+    <div class="col-span-full lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:mt-4">
+      <label class="text-base" id="bill-label" for="bill-input">Bill</label>
+      <div class="relative">
+        <img src="./src/assets/images/icon-dollar.svg" class="input-icon" alt="dollar sign" />
+        <input type="text" id="bill-input" placeholder="0"
+          class="default-input default-input-hover mt-1.5 placeholder:text-[#00474B]/[.35] " />
+      </div>
+    </div>
+
+    <div class="col-span-full lg:col-start-1 lg:col-end-2 lg:row-start-2">
+      <div class="relative grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <p class="text-base col-span-full text-neutral-700">Select Tip %</p>
+        <button data-id="tip-0" class="btn" value="5">5%</button>
+        <button data-id="tip-1" class="btn" value="10">10%</button>
+        <button data-id="tip-2" class="btn" value="15">15%</button>
+        <button data-id="tip-3" class="btn" value="25">25%</button>
+        <button data-id="tip-4" class="btn" value="50">50%</button>
+        <input type="text" placeholder="Custom" id="custom-input" class="default-input placeholder:text-neutral-600" />
+      </div>
+    </div>
+
+    <div class="col-span-full lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:mb-4">
+      <label for="people-input" class="text-base col-span-full">Number of People</label>
+      <div class="relative col-span-full">
+        <img src="./src/assets/images/icon-person.svg" class="input-icon" alt="person icon" />
+        <input type="text" placeholder="0" id="people-input"
+          class="default-input mt-1.5 placeholder:text-[#00474B]/[.35]" />
+      </div>
+    </div>
+
+    <div
+      class="grid col-span-full lg:col-start-2 lg:col-end-4 lg:row-span-full pt-[30px] pb-6 px-6 sm:p-10 bg-primary-700 rounded-[15px] w-full">
+      <div id="results" class="grid grid-cols-2 mb-8 gap-y-5 lg:gap-y-0">
+        <div class="col-span-full">
+          <div class="flex flex-row items-center justify-between">
+            <h1 class="text-base text-neutral-100">Tip Amount<span
+                class="text-neutral-500 text-[13px] block leading-5">/
+                person</span>
+            </h1>
+            <p id="tip-amount"
+              class="mb-[5px] lg:mb-0 text-[32px] sm:text-5xl sm:leading-normal leading-normal text-right text-primary-500">
+              $0.00
+            </p>
+          </div>
+        </div>
+        <div class="col-span-full">
+          <div class="flex flex-row items-center justify-between">
+            <h2 class="text-base text-neutral-100">Total <span class="text-neutral-500 text-[13px] block leading-5">/
+                person</span></h2>
+            <p id="total"
+              class="mb-[5px] lg:mb-0 text-[32px] sm:text-5xl sm:leading-normal leading-normal text-right  text-primary-500">
+              $0.00</p>
+          </div>
+        </div>
+      </div>
+      <button id="btn-reset"
+        class="uppercase w-full cursor-[unset] text-primary-700/[.35] bg-primary-600 text-xl leading-[30px] py-[9px] rounded-[5px] lg:place-self-end">reset</button>
+    </div>
+  </main>
+  <footer
+    class="hidden min-screen:block absolute w-full mx-auto bottom-0  text-center text-primary-700 pb-6 text-[1.125rem]">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="underline text-neutral-700">Frontend
+      Mentor</a>.
+    Coded by
+    <a href="https://www.frontendmentor.io/profile/nicodes-dev" target="_blank"
+      class="underline text-neutral-700">nicodes-dev</a>.
+  </footer>
 </body>
 
 </html>
