@@ -44,7 +44,6 @@ export const resetInputValue = (el: HTMLInputElement): void => {
 }
 
 export const validateAndGetResult = () => {
-  console.log('selectedtip', initialState.selectedTip)
   if (
     initialState.bill > 0 &&
     initialState.selectedTip > 0 &&
@@ -65,8 +64,6 @@ export const validateAndGetResult = () => {
     btnReset.classList.remove('active')
     btnReset.setAttribute('disabled', '')
   }
-
-  console.log(initialState.totalPerPerson, initialState.tipAmount)
 }
 
 export const createErrorEl = (

@@ -148,7 +148,6 @@ btnControls.forEach(btn => {
 })
 
 btnReset.addEventListener('click', () => {
-  console.log('clicked')
   initialState.bill = 0
   initialState.personCount = 0
   initialState.tipAmount = 0
@@ -160,7 +159,6 @@ btnReset.addEventListener('click', () => {
   totalAmountEl.textContent = '$0.00'
   customInput.value = ''
   btnControls.forEach(btn => btn.classList.remove('active'))
-  console.log(initialState)
 })
 
 calcEl.addEventListener('input', () => {
